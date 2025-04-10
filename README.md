@@ -94,21 +94,21 @@ This architecture leverages Agent Graph's functional approach, making it easy to
 
 ```bash
 # Using npm
-npm install agent-graph
+npm install graphagent
 
 # Using yarn
-yarn add agent-graph
+yarn add graphagent
 
 # Using bun
-bun add agent-graph
+bun add graphagent
 ```
 
-*(Note: Replace `agent-graph` with the actual package name if it's different)*
+*(Note: Replace `graphagent` with the actual package name if it's different)*
 
 ## Getting Started: Simple Pipeline
 
 ```typescript
-import { node, pipe, executor } from 'agent-graph'; // Adjust import path if necessary
+import { node, pipe, executor } from 'graphagent'; // Adjust import path if necessary
 
 // Define a simple context type (optional but recommended)
 interface MyContext {
@@ -182,7 +182,7 @@ Final Context: {
 ### Asynchronous Operations (`node.createAsync`)
 
 ```typescript
-import { node, pipeAsync, executor } from 'agent-graph';
+import { node, pipeAsync, executor } from 'graphagent';
 
 interface ApiContext {
   userId: number;
@@ -228,7 +228,7 @@ console.log("Async Pipeline Result:", finalApiContext);
 ### Retry Logic (`withRetry`)
 
 ```typescript
-import { node, retry, executor } from 'agent-graph';
+import { node, retry, executor } from 'graphagent';
 
 let attemptCounter = 0;
 const flakyNode = node.createAsync<{}, void, { success: boolean }>()
@@ -261,7 +261,7 @@ console.log(`Total attempts: ${attemptCounter}`);
 ### Batch Processing (`batch.createAsync`)
 
 ```typescript
-import { node, batch, executor } from 'agent-graph';
+import { node, batch, executor } from 'graphagent';
 
 interface BatchContext {
   itemIds: number[];
@@ -307,7 +307,7 @@ console.log("Batch Result:", batchResult);
 ### Fork/Join (`parallelAsync`, `joinAsync`)
 
 ```typescript
-import { node, parallelAsync, joinAsync, executor } from 'agent-graph';
+import { node, parallelAsync, joinAsync, executor } from 'graphagent';
 
 interface ForkContext {
   inputData: string;
@@ -354,7 +354,7 @@ console.log("Fork/Join Result:", forkResult);
 ### Conditional Execution (`whenAsync`)
 
 ```typescript
-import { node, whenAsync, pipeAsync, executor } from 'agent-graph';
+import { node, whenAsync, pipeAsync, executor } from 'graphagent';
 
 interface ConditionalContext {
   value: number;

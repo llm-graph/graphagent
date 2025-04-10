@@ -17,7 +17,7 @@ export const deepCopy = <T>(obj: T): T =>
 export const log = (level: number, message: string, data?: any): void => {
   const currentLevel = process.env.LOG_LEVEL ? parseInt(process.env.LOG_LEVEL) : 1
   if (level <= currentLevel) {
-    console.log(`[Agent-Graph] ${message}`, data ? data : '')
+    console.log(`[GraphAgent] ${message}`, data ? data : '')
   }
 }
 
