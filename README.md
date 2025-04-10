@@ -35,6 +35,61 @@ Agent Graph revolves around a few fundamental ideas:
     *   **Join (`join`, `joinAsync`)**: Merges the results from multiple parallel paths back into a single context.
     *   **When (`when`, `whenAsync`)**: Executes a target node only if a specific condition (usually based on the previous node's `outcome`) is met.
 
+## LLM Agent Workflow Example
+
+Agent Graph is particularly well-suited for building LLM agent workflows. Here's a diagram illustrating how you can use the framework to create a sophisticated agent system:
+
+```mermaid
+graph TD
+    subgraph "Agent Graph Framework"
+        A[User Input] --> B[Context Initialization]
+        B --> C[Agent Orchestrator]
+        
+        subgraph "Agent Orchestrator"
+            C --> D[Task Planning Node]
+            D --> E[Tool Selection Node]
+            E --> F[Execution Node]
+            F --> G[Result Evaluation Node]
+        end
+        
+        G --> H{Success?}
+        H -->|Yes| I[Final Response]
+        H -->|No| J[Error Handling]
+        J --> K[Retry Logic]
+        K --> D
+    end
+    
+    subgraph "Parallel Processing"
+        E --> L[Tool 1]
+        E --> M[Tool 2]
+        E --> N[Tool 3]
+        L --> O[Join Results]
+        M --> O
+        N --> O
+        O --> F
+    end
+    
+    subgraph "Conditional Execution"
+        G --> P{Needs Research?}
+        P -->|Yes| Q[Research Node]
+        Q --> R[Knowledge Integration]
+        R --> G
+        P -->|No| H
+    end
+```
+
+### How It Works
+
+1. **Context Initialization**: Create an initial context with user input and system parameters
+2. **Task Planning**: Use an LLM to break down the task into subtasks
+3. **Tool Selection**: Determine which tools are needed for each subtask
+4. **Parallel Execution**: Run multiple tools concurrently when possible
+5. **Result Evaluation**: Assess the quality of results and decide next steps
+6. **Conditional Logic**: Branch execution based on evaluation outcomes
+7. **Error Handling**: Implement retry policies for resilience
+
+This architecture leverages Agent Graph's functional approach, making it easy to compose complex workflows while maintaining type safety and immutability.
+
 ## Installation
 
 ```bash
@@ -353,7 +408,7 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 
 1.  Fork the repository.
 2.  Create your feature branch (`git checkout -b feature/my-new-feature`).
-3.  Commit your changes (`git commit -am 'Add some feature'`).
+3.  Commit your changes (`git commit -am 'Add some feature'`)
 4.  Push to the branch (`git push origin feature/my-new-feature`).
 5.  Open a pull request.
 
