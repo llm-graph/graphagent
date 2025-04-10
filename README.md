@@ -1,12 +1,13 @@
-# Agent Graph ⚡️
+# Graph Agent ⚡️
 
 **A minimalist, functional, and type-safe TypeScript framework for building directed computational graphs.**
 
-Agent Graph empowers you to orchestrate complex workflows, particularly suited for LLM applications, agentic systems, data processing pipelines, and more. It emphasizes a functional approach with immutable state management, making your graphs predictable and easy to reason about.
+Graph Agent empowers you to orchestrate complex workflows, particularly suited for LLM applications, agentic systems, data processing pipelines, and more. It emphasizes a functional approach with immutable state management, making your graphs predictable and easy to reason about.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)]() <!-- Replace with actual test badge if available -->
+[![GitHub](https://img.shields.io/badge/GitHub-llm--graph%2Fgraphagent-blue.svg)](https://github.com/llm-graph/graphagent.git)
 
 ## Key Features
 
@@ -24,7 +25,7 @@ Agent Graph empowers you to orchestrate complex workflows, particularly suited f
 
 ## Core Concepts
 
-Agent Graph revolves around a few fundamental ideas:
+Graph Agent revolves around a few fundamental ideas:
 
 1.  **Node**: The basic unit of computation. Each node represents a discrete step in your workflow. Nodes can be synchronous (`node.create()`) or asynchronous (`node.createAsync()`).
 2.  **Context**: An immutable JavaScript object (`Record<string, any>`) that flows through the graph. Nodes read from and contribute to the context, but they *never* modify the incoming context directly. Instead, they return results that are merged into a *new* context object for the next step.
@@ -37,11 +38,11 @@ Agent Graph revolves around a few fundamental ideas:
 
 ## LLM Agent Workflow Example
 
-Agent Graph is particularly well-suited for building LLM agent workflows. Here's a diagram illustrating how you can use the framework to create a sophisticated agent system:
+Graph Agent is particularly well-suited for building LLM agent workflows. Here's a diagram illustrating how you can use the framework to create a sophisticated agent system:
 
 ```mermaid
 graph TD
-    subgraph "Agent Graph Framework"
+    subgraph "Graph Agent Framework"
         A[User Input] --> B[Context Initialization]
         B --> C[Agent Orchestrator]
         
@@ -88,7 +89,7 @@ graph TD
 6. **Conditional Logic**: Branch execution based on evaluation outcomes
 7. **Error Handling**: Implement retry policies for resilience
 
-This architecture leverages Agent Graph's functional approach, making it easy to compose complex workflows while maintaining type safety and immutability.
+This architecture leverages Graph Agent's functional approach, making it easy to compose complex workflows while maintaining type safety and immutability.
 
 ## Installation
 
