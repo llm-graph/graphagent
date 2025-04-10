@@ -1,0 +1,16 @@
+# Source
+src/
+test/
+
+# Config files
+tsconfig.json
+.cursor/
+.gitignore
+.npmignore
+
+# Development
+node_modules/
+bun.lock
+
+# Build output (will be included via package.json files field)
+!dist/ 
